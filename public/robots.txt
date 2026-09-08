@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://omnicase.studio/sitemap.xml
-Sitemap: https://formatcase.com/sitemap.xml
 

@@ -26,7 +26,6 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex items-center gap-2">
               <span className="text-base font-bold tracking-tight text-slate-900 dark:text-zinc-100">
                 OmniCase Studio
-                FormatCase
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60">
                 <ShieldCheck className="w-3 h-3" /> 100% In-Browser Privacy
@@ -34,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <p className="text-[11px] text-slate-500 dark:text-zinc-400 hidden xs:block">
               Zero-latency developer case converter & text utility
-              Fast developer case formatter & text utility
             </p>
           </div>
         </div>

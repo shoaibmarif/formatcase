@@ -1,6 +1,5 @@
 /**
  * Robust Rule-Based Tokenizer for OmniCase Studio
- * Robust Rule-Based Tokenizer for FormatCase
  * Splits strings into individual words while respecting:
  * - Acronym boundaries (e.g., 'JSONParser' -> ['JSON', 'Parser'])
  * - CamelCase & PascalCase boundaries (e.g., 'helloWorld' -> ['hello', 'World'])
