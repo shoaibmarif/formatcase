@@ -115,6 +115,7 @@ export const SAMPLE_PRESETS: SamplePreset[] = [
     label: 'Normal Sentence',
     description: 'Everyday English text to try out all formats',
     text: 'welcome to omnicase studio\nuser account settings\nthe quick brown fox jumps over the lazy dog',
+    text: 'welcome to formatcase\nuser account settings\nthe quick brown fox jumps over the lazy dog',
   },
   {
     id: 'user_fields',

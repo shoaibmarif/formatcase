@@ -5,10 +5,12 @@ export type ThemeMode = 'light' | 'dark' | 'system';
 
 export function useTheme() {
   const [theme, setTheme] = useLocalStorage<ThemeMode>('omnicase_theme', 'system');
+  const [theme, setTheme] = useLocalStorage<ThemeMode>('formatcase_theme', 'system');
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
     try {
       const stored = window.localStorage.getItem('omnicase_theme');
+      const stored = window.localStorage.getItem('formatcase_theme');
       const parsed = stored ? JSON.parse(stored) : 'system';
       if (parsed === 'dark') return true;
       if (parsed === 'light') return false;

@@ -89,6 +89,7 @@ const FAQS: FaqItem[] = [
     question: 'Is my text private? Does anything get sent over the internet?',
     answer:
       "Zero. Nothing leaves your device. OmniCase runs 100% inside your web browser's memory. You could disconnect your internet right now, and the tool will continue working with zero issues. We don't save your text, we don't have a backend server reading your data, and we don't track what you paste.",
+      "Zero. Nothing leaves your device. FormatCase runs 100% inside your web browser's memory. You could disconnect your internet right now, and the tool will continue working with zero issues. We don't save your text, we don't have a backend server reading your data, and we don't track what you paste.",
   },
   {
     question: 'How does this tool handle tricky names like "parseHTTPResponse" or "userID"?',

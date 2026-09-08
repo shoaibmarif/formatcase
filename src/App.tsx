@@ -13,9 +13,12 @@ import { SamplePreset } from './utils/textUtils';
 
 export default function App() {
   const [input, setInput] = useState<string>('welcome to omnicase studio\nuser account settings\nthe quick brown fox jumps');
+  const [input, setInput] = useState<string>('welcome to formatcase\nuser account settings\nthe quick brown fox jumps');
   const [previousInput, setPreviousInput] = useState<string | null>(null);
   const [batchMode, setBatchMode] = useLocalStorage<boolean>('omnicase_batch_mode', true);
   const [favorites, setFavorites] = useLocalStorage<string[]>('omnicase_favorites', [
+  const [batchMode, setBatchMode] = useLocalStorage<boolean>('formatcase_batch_mode', true);
+  const [favorites, setFavorites] = useLocalStorage<string[]>('formatcase_favorites', [
     'camel',
     'pascal',
     'snake',
@@ -163,8 +166,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-500">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-slate-700 dark:text-zinc-300">OmniCase Studio</span>
+            <span className="font-semibold text-slate-700 dark:text-zinc-300">FormatCase</span>
             <span>•</span>
             <span>Free & Private Online Case Converter</span>
+            <span>Free & Private Online Case Formatter</span>
           </div>
         </div>
       </footer>
