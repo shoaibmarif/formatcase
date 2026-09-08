@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Multi-Format Case Converter | camelCase, snake_case, PascalCase, kebab-case Online</title>
+    <meta name="title" content="Multi-Format Case Converter | camelCase, snake_case, PascalCase, kebab-case Online" />
+    <meta name="description" content="Free, instant, 100% private online case converter for developers. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 18+ formats." />
+    <meta name="keywords" content="camelcase converter, snake case online, string case changer, kebab case generator, pascalcase converter, text case tool, screaming snake case, developer utilities" />
+    <meta name="author" content="OmniCase Studio" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://omnicase.studio/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://omnicase.studio/" />
+    <meta property="og:title" content="Multi-Format Case Converter - Developer Utility" />
+    <meta property="og:description" content="Zero-latency online text and code case converter running 100% client-side in your browser. 18+ formats supported." />
+    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://omnicase.studio/" />
+    <meta property="twitter:title" content="OmniCase Studio - Multi-Format Case Converter" />
+    <meta property="twitter:description" content="Instant, zero-latency in-memory string case conversion across 18+ developer & editorial formats." />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "OmniCase Studio",
+          "url": "https://omnicase.studio",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Instant online case conversion tool for developers. Convert text between camelCase, snake_case, kebab-case, PascalCase, and 18+ formats in-browser with zero latency."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the difference between camelCase and PascalCase?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In camelCase, the very first letter is lowercase while subsequent words start with an uppercase letter (e.g., userAccount). In PascalCase, every word start is capitalized (e.g., UserAccount)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this tool upload my code or text to a server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. OmniCase Studio runs 100% locally in your browser memory. No text is sent over the network, guaranteeing complete privacy and confidentiality."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does OmniCase Studio handle acronyms like XML or HTTP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OmniCase Studio features a rule-based tokenizer that accurately detects consecutive uppercase characters followed by title case (such as parseHTTPResponse becoming parse_http_response rather than parse_h_t_t_p_response)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I process multiline batch lists of variables?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, toggle Batch Mode to process each line independently, perfect for database columns, JSON keys, or environment variable lists."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 min-h-screen antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
