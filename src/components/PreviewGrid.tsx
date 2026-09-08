@@ -112,7 +112,7 @@ export const PreviewGrid: React.FC<PreviewGridProps> = ({
               : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
           }`}
         >
-          All Formats ({categoryCounts.all})
+          All ({categoryCounts.all})
         </button>
         <button
           type="button"
@@ -123,7 +123,7 @@ export const PreviewGrid: React.FC<PreviewGridProps> = ({
               : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
           }`}
         >
-          Developer & Code ({categoryCounts.developer})
+          Code & Variables ({categoryCounts.developer})
         </button>
         <button
           type="button"
@@ -134,7 +134,7 @@ export const PreviewGrid: React.FC<PreviewGridProps> = ({
               : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
           }`}
         >
-          Natural Language ({categoryCounts.natural})
+          Text & Titles ({categoryCounts.natural})
         </button>
         <button
           type="button"
@@ -145,7 +145,7 @@ export const PreviewGrid: React.FC<PreviewGridProps> = ({
               : 'bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800'
           }`}
         >
-          Utility ({categoryCounts.utility})
+          Web Links ({categoryCounts.utility})
         </button>
 
         {categoryCounts.favorites > 0 && (

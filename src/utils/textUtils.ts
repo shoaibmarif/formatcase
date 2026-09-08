@@ -111,34 +111,34 @@ export interface SamplePreset {
 
 export const SAMPLE_PRESETS: SamplePreset[] = [
   {
-    id: 'api_response',
-    label: 'API JSON Payload',
-    description: 'CamelCase API attributes with acronyms',
-    text: 'parseHTTPResponseJSON\nuserAuthenticationToken\nclientIPAddressIPv6\nmaxConnectionsTimeoutSec',
-  },
-  {
-    id: 'db_columns',
-    label: 'Database Columns',
-    description: 'Snake case database schema columns',
-    text: 'first_name\nlast_name\nemail_address\nis_verified_account\ncreated_at_timestamp',
-  },
-  {
-    id: 'env_vars',
-    label: 'Environment Variables',
-    description: 'SCREAMING_SNAKE config keys',
-    text: 'DATABASE_URL\nREDIS_CACHE_PORT\nJWT_SECRET_KEY\nAWS_S3_BUCKET_NAME',
-  },
-  {
     id: 'natural_phrase',
-    label: 'Editorial Sentence',
-    description: 'Natural language title and sentence',
-    text: 'The quick brown fox jumps over the lazy dog.\nBuilding modern web applications with React 19 and Tailwind CSS.',
+    label: 'Normal Sentence',
+    description: 'Everyday English text to try out all formats',
+    text: 'welcome to omnicase studio\nuser account settings\nthe quick brown fox jumps over the lazy dog',
+  },
+  {
+    id: 'user_fields',
+    label: 'Account & Settings',
+    description: 'Common account and form field names',
+    text: 'first name\nlast name\nemail address\nprofile picture url\nis active member',
   },
   {
     id: 'url_slugs',
-    label: 'Blog Post & URLs',
-    description: 'Blog post headings and special characters',
-    text: '10 Tips for Mastering TypeScript in 2026!\nUnderstanding JavaScript Asynchronous Programming & Web Workers',
+    label: 'Blog & Article Titles',
+    description: 'Post headlines with punctuation and symbols',
+    text: '10 Simple Tips for Web Developers in 2026!\nHow to Build Fast & Responsive Apps with React',
+  },
+  {
+    id: 'api_response',
+    label: 'Code & API Names',
+    description: 'Developer variables with acronyms',
+    text: 'parseHTTPResponseJSON\nuserAuthenticationToken\nclientIPAddress\nmaxRetryCount',
+  },
+  {
+    id: 'env_vars',
+    label: 'Config & Environment',
+    description: 'System keys and server constants',
+    text: 'DATABASE_URL\nCACHE_PORT\nJWT_SECRET_KEY\nAPP_ENVIRONMENT',
   },
 ];
 

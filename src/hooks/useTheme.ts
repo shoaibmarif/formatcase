@@ -1,19 +1,32 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 export type ThemeMode = 'light' | 'dark' | 'system';
 
 export function useTheme() {
   const [theme, setTheme] = useLocalStorage<ThemeMode>('omnicase_theme', 'system');
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      const stored = window.localStorage.getItem('omnicase_theme');
+      const parsed = stored ? JSON.parse(stored) : 'system';
+      if (parsed === 'dark') return true;
+      if (parsed === 'light') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
     const root = document.documentElement;
 
     const applyTheme = () => {
       const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = theme === 'dark' || (theme === 'system' && systemPrefersDark);
+      const shouldBeDark = theme === 'dark' || (theme === 'system' && systemPrefersDark);
 
-      if (isDark) {
+      setIsDark(shouldBeDark);
+      if (shouldBeDark) {
         root.classList.add('dark');
       } else {
         root.classList.remove('dark');
@@ -31,13 +44,10 @@ export function useTheme() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => {
-      if (prev === 'light') return 'dark';
-      if (prev === 'dark') return 'system';
-      return 'light';
-    });
+    const nextTheme: ThemeMode = isDark ? 'light' : 'dark';
+    setTheme(nextTheme);
   };
 
-  return { theme, setTheme, toggleTheme };
+  return { theme, isDark, setTheme, toggleTheme };
 }
 

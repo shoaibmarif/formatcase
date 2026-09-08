@@ -79,7 +79,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
                 format.category
               )}`}
             >
-              {format.category}
+              {format.category === 'developer' ? 'Code' : format.category === 'natural' ? 'Text' : 'Web'}
             </span>
           </div>
 
@@ -128,7 +128,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           }`}
         >
           {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-          {copied ? 'Copied!' : 'Copy Result'}
+          {copied ? 'Copied!' : 'Copy'}
         </button>
 
         <button
@@ -136,8 +136,8 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           onClick={() => onReplaceInput(output, format.name)}
           disabled={!output}
           className="p-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
-          title="Replace input workbench with this output"
-          aria-label="Replace input text"
+          title="Use this as the new input text"
+          aria-label="Use as input text"
         >
           <ArrowUpRight className="w-4 h-4" />
         </button>

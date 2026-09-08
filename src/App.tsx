@@ -12,7 +12,7 @@ import { useTheme } from './hooks/useTheme';
 import { SamplePreset } from './utils/textUtils';
 
 export default function App() {
-  const [input, setInput] = useState<string>('parseHTTPResponseJSON\nuserAuthenticationToken\nclientIPAddressIPv6');
+  const [input, setInput] = useState<string>('welcome to omnicase studio\nuser account settings\nthe quick brown fox jumps');
   const [previousInput, setPreviousInput] = useState<string | null>(null);
   const [batchMode, setBatchMode] = useLocalStorage<boolean>('omnicase_batch_mode', true);
   const [favorites, setFavorites] = useLocalStorage<string[]>('omnicase_favorites', [
@@ -25,7 +25,7 @@ export default function App() {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
-  const { theme, toggleTheme } = useTheme();
+  const { theme, isDark, toggleTheme } = useTheme();
   const { transform } = useCaseConverter(input, batchMode);
 
   // Keyboard shortcut listener for Cmd+K / Ctrl+K
@@ -110,6 +110,7 @@ export default function App() {
       {/* Navbar Header */}
       <Header
         theme={theme}
+        isDark={isDark}
         onThemeToggle={toggleTheme}
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
       />
@@ -158,17 +159,12 @@ export default function App() {
       <Toast toasts={toasts} onDismiss={dismissToast} />
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-zinc-800 py-8 mt-12 bg-white dark:bg-zinc-900/50 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-500">
+      <footer className="border-t border-slate-200 dark:border-zinc-800 py-6 mt-12 bg-white dark:bg-zinc-900/50 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-500">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-slate-700 dark:text-zinc-300">OmniCase Studio</span>
             <span>•</span>
-            <span>100% Client-Side In-Memory Execution</span>
-            <span>•</span>
-            <span>Zero Network Tracking</span>
-          </div>
-          <div>
-            Built with React 19, Tailwind CSS v4 & TypeScript
+            <span>Free & Private Online Case Converter</span>
           </div>
         </div>
       </footer>
