@@ -1,7 +1,8 @@
 # FormatCase — Multi-Format Case Converter & Text Utility
 
+> **Live Website**: [https://formatcase.netlify.app/](https://formatcase.netlify.app/)  
 > **High-performance, zero-latency, 100% in-browser text transformation engine and developer utility.**  
-> Designed as an offline-first Single Page Application (SPA) and an open-source specification for packaging as a Chrome Extension / Browser Action plugin.
+> Designed as an offline-first Single Page Application (SPA) and an open-source Chrome Extension (Manifest V3).
 
 ---
 
@@ -268,6 +269,7 @@ npm run build:ext     # Build extension into packages/extension/dist
 ## 8. Author & License
 
 - **Author**: Shoaib M. Arif
+- **Website**: [https://formatcase.netlify.app/](https://formatcase.netlify.app/)
 - **GitHub**: [https://github.com/shoaibmarif](https://github.com/shoaibmarif)
 - **LinkedIn**: [https://www.linkedin.com/in/shoaibmarif/](https://www.linkedin.com/in/shoaibmarif/)
 - **License**: MIT

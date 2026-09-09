@@ -123,8 +123,8 @@ export default function App() {
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
       />
 
-      {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-14 flex-1 w-full space-y-6 sm:space-y-10 overflow-hidden">
+      {/* Main Container with Generous Breathing Space */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 flex-1 w-full space-y-8 sm:space-y-12 md:space-y-16 overflow-hidden">
         {/* Input Workbench */}
         <InputWorkbench
           input={input}
@@ -221,6 +221,13 @@ export default function App() {
                 className="px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/60 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all font-medium"
               >
                 formatcase.netlify.app
+              </a>
+
+              <a
+                href="/privacy"
+                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 transition-all font-medium"
+              >
+                Privacy
               </a>
             </div>
           </div>

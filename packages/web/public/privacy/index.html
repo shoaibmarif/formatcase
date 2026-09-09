@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — FormatCase</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --border: #1f2937;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #6366f1;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      margin-left: 8px;
+    }
+    h1 {
+      font-size: 32px;
+      margin: 16px 0 8px;
+      color: white;
+    }
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 10px;
+    }
+    p, li {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #c7d2fe;
+    }
+    a {
+      color: #818cf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="brand">
+        FormatCase <span class="badge">Official Policy</span>
+      </a>
+      <h1>Privacy Policy</h1>
+      <div class="date">Last updated: September 2026 • Applies to FormatCase Web & Chrome Extension</div>
+    </header>
+
+    <div class="card">
+      <h2>1. Overview & Single Purpose</h2>
+      <p>
+        <strong>FormatCase</strong> ("we", "our", or "the extension") is a developer productivity utility designed to transform text strings between 25+ casing conventions (such as <code>camelCase</code>, <code>snake_case</code>, <code>PascalCase</code>, <code>kebab-case</code>, and <code>Title Case</code>).
+      </p>
+      <p>
+        We are firmly committed to user privacy. We do not collect, store, transmit, process, or sell any personal data, keystrokes, or text inputs.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>2. Zero Data Collection Guarantee</h2>
+      <p>FormatCase is built on a <strong>100% Client-Side Architecture</strong>:</p>
+      <ul>
+        <li><strong>No Network Transmission:</strong> The text you format never leaves your web browser. All transformations are performed strictly in local memory using our in-browser algorithm.</li>
+        <li><strong>No Analytics or Tracking:</strong> The Chrome extension contains zero tracking pixels, telemetry, or third-party analytical scripts.</li>
+        <li><strong>No Personal Identifiers:</strong> We do not ask for or collect names, email addresses, IP addresses, browsing histories, or location data.</li>
+        <li><strong>No Keystroke Logging:</strong> FormatCase does not monitor or log keyboard activities.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>3. Chrome Extension Permissions Justification</h2>
+      <p>In accordance with Google Chrome Web Store Developer Policies, here is why each permission is required:</p>
+      <ul>
+        <li><code>activeTab</code> & <code>scripting</code>: Used solely to read user-selected text and write the formatted result into your clipboard when you trigger a right-click context menu transformation.</li>
+        <li><code>clipboardWrite</code>: Enables writing the converted text string directly to your clipboard upon clicking "Copy" or using context menus.</li>
+        <li><code>contextMenus</code>: Allows registering the "FormatCase" sub-menu options when you highlight text on any web page.</li>
+        <li><code>storage</code>: Used strictly on your local machine to save your UI preferences (such as favorite casing formats and active filters). No data is synced to external servers.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>4. Third-Party Services</h2>
+      <p>
+        The FormatCase Chrome Extension operates completely offline and does not communicate with any third-party APIs or remote servers.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>5. Contact & Support</h2>
+      <p>
+        If you have questions, feedback, or need support regarding this privacy policy or the FormatCase software:
+      </p>
+      <ul>
+        <li><strong>Author:</strong> Shoaib M. Arif</li>
+        <li><strong>GitHub Issues / Support:</strong> <a href="https://github.com/shoaibmarif" target="_blank" rel="noopener noreferrer">https://github.com/shoaibmarif</a></li>
+        <li><strong>Live Web Application:</strong> <a href="https://formatcase.netlify.app/">https://formatcase.netlify.app/</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shoaibmarif/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/shoaibmarif/</a></li>
+      </ul>
+    </div>
+
+    <footer>
+      © 2026 FormatCase. Open-source software released under the MIT License.
+    </footer>
+  </div>
+</body>
+</html>
