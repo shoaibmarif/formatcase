@@ -1,12 +1,17 @@
 {
+  "name": "formatcase-monorepo",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "test": "vitest run"
+    "dev": "npm run dev:web",
+    "dev:web": "npm run dev --workspace=@formatcase/web",
+    "dev:ext": "npm run dev --workspace=@formatcase/extension",
+    "build:web": "npm run build --workspace=@formatcase/web",
+    "build:ext": "npm run build --workspace=@formatcase/extension",
+    "build": "npm run build --workspaces --if-present",
+    "test": "vitest run packages/core"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
@@ -17,6 +22,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.6",
     "@types/canvas-confetti": "^1.9.0",
+    "@types/chrome": "^0.0.304",
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
@@ -27,4 +33,3 @@
     "vitest": "^3.0.5"
   }
 }
-
