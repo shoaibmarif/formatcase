@@ -61,21 +61,21 @@ export const FormatCard: React.FC<FormatCardProps> = ({
 
   return (
     <div
-      className={`group relative flex flex-col justify-between rounded-2xl border transition-all duration-200 bg-white dark:bg-zinc-900/90 p-4 shadow-2xs hover:shadow-md ${
+      className={`group relative flex flex-col justify-between rounded-3xl border transition-all duration-200 bg-white dark:bg-zinc-900/90 p-5 sm:p-6 shadow-xs hover:shadow-md ${
         isFavorite
           ? 'border-amber-300/80 dark:border-amber-600/60 ring-1 ring-amber-400/20'
-          : 'border-slate-200 dark:border-zinc-800 hover:border-indigo-300 dark:hover:border-indigo-700'
+          : 'border-slate-200/90 dark:border-zinc-800/90 hover:border-indigo-300 dark:hover:border-indigo-700'
       }`}
     >
       <div>
         {/* Header: Name, Category, Pin */}
-        <div className="flex items-center justify-between gap-2 mb-1.5">
-          <div className="flex items-center gap-2 overflow-hidden">
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2.5 overflow-hidden">
             <h3 className="font-mono text-sm font-bold text-slate-800 dark:text-zinc-100 truncate">
               {format.name}
             </h3>
             <span
-              className={`text-[10px] uppercase font-semibold px-2 py-0.5 rounded-md border ${getCategoryColor(
+              className={`text-[10px] uppercase font-semibold px-2.5 py-0.5 rounded-md border ${getCategoryColor(
                 format.category
               )}`}
             >
@@ -86,7 +86,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           <button
             type="button"
             onClick={() => onToggleFavorite(format.id)}
-            className={`p-1 rounded-lg transition-colors cursor-pointer ${
+            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
               isFavorite
                 ? 'text-amber-500 hover:text-amber-600'
                 : 'text-slate-300 dark:text-zinc-600 hover:text-amber-400'
@@ -99,12 +99,12 @@ export const FormatCard: React.FC<FormatCardProps> = ({
         </div>
 
         {/* Description */}
-        <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3 line-clamp-1">
+        <p className="text-xs text-slate-500 dark:text-zinc-400 mb-3.5 line-clamp-1">
           {format.description}
         </p>
 
         {/* Output container */}
-        <div className="relative rounded-xl bg-slate-50 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 p-3 min-h-[58px] max-h-48 overflow-y-auto font-mono text-xs text-slate-900 dark:text-zinc-100 select-all break-all whitespace-pre-wrap flex items-center">
+        <div className="relative rounded-2xl bg-slate-50/80 dark:bg-zinc-950 border border-slate-200/80 dark:border-zinc-800/80 p-3.5 sm:p-4 min-h-[64px] max-h-48 overflow-y-auto font-mono text-xs text-slate-900 dark:text-zinc-100 select-all break-all whitespace-pre-wrap flex items-center leading-relaxed">
           {output ? (
             output
           ) : (
@@ -116,12 +116,12 @@ export const FormatCard: React.FC<FormatCardProps> = ({
       </div>
 
       {/* Card Actions */}
-      <div className="mt-3.5 flex items-center gap-2">
+      <div className="mt-4 flex items-center gap-2">
         <button
           type="button"
           onClick={handleCopy}
           disabled={!output}
-          className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+          className={`flex-1 py-2 px-3.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
             copied
               ? 'bg-emerald-600 text-white shadow-xs'
               : 'bg-indigo-50 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-indigo-700 dark:text-zinc-200 disabled:opacity-40 disabled:hover:bg-indigo-50 disabled:hover:text-indigo-700 disabled:cursor-not-allowed'
@@ -135,7 +135,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           type="button"
           onClick={() => onReplaceInput(output, format.name)}
           disabled={!output}
-          className="p-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+          className="p-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
           title="Use this as the new input text"
           aria-label="Use as input text"
         >

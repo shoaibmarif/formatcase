@@ -12,7 +12,9 @@ import { useTheme } from './hooks/useTheme';
 import { SamplePreset } from './utils/textUtils';
 
 export default function App() {
-  const [input, setInput] = useState<string>('welcome to formatcase\nuser account settings\nthe quick brown fox jumps');
+  const [input, setInput] = useState<string>(
+    'welcome to formatcase\nuser account settings\nthe quick brown fox jumps'
+  );
   const [previousInput, setPreviousInput] = useState<string | null>(null);
   const [batchMode, setBatchMode] = useLocalStorage<boolean>('formatcase_batch_mode', true);
   const [favorites, setFavorites] = useLocalStorage<string[]>('formatcase_favorites', [
@@ -116,7 +118,7 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full space-y-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 flex-1 w-full space-y-10">
         {/* Input Workbench */}
         <InputWorkbench
           input={input}
@@ -159,12 +161,33 @@ export default function App() {
       <Toast toasts={toasts} onDismiss={dismissToast} />
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-zinc-800 py-6 mt-12 bg-white dark:bg-zinc-900/50 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between text-xs text-slate-500 dark:text-zinc-500">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-700 dark:text-zinc-300">OmniCase Studio</span>
+      <footer className="border-t border-slate-200/90 dark:border-zinc-800/90 py-8 mt-16 bg-white dark:bg-zinc-900/50 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-zinc-500">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="font-semibold text-slate-700 dark:text-zinc-300">FormatCase</span>
             <span>•</span>
-            <span>Free & Private Online Case Converter</span>
+            <span>Free & Private Online Case Formatter</span>
+            <span>•</span>
+            <span className="flex items-center gap-2">
+              <span>Created by Shoaib M. Arif</span>
+              <a
+                href="https://github.com/shoaibmarif"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 underline underline-offset-2 transition-colors"
+              >
+                GitHub
+              </a>
+              <span>/</span>
+              <a
+                href="https://www.linkedin.com/in/shoaibmarif/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 dark:text-zinc-400 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] underline underline-offset-2 transition-colors"
+              >
+                LinkedIn
+              </a>
+            </span>
           </div>
         </div>
       </footer>
