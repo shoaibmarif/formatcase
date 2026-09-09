@@ -16,36 +16,37 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header className="border-b border-slate-200/80 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md sticky top-0 z-40 transition-colors">
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 min-h-[4rem] sm:h-20 py-2 sm:py-0 flex items-center justify-between gap-2 sm:gap-6">
         {/* Logo & Title */}
-        <div className="flex items-center gap-3.5">
-          <div className="p-2.5 bg-gradient-to-tr from-indigo-600 to-violet-600 text-white rounded-2xl shadow-md flex items-center justify-center ring-4 ring-indigo-500/10">
-            <ArrowRightLeft className="w-5 h-5" />
+        <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
+          <div className="p-2 sm:p-2.5 bg-gradient-to-tr from-indigo-600 to-violet-600 text-white rounded-xl sm:rounded-2xl shadow-md flex items-center justify-center ring-2 sm:ring-4 ring-indigo-500/10 shrink-0">
+            <ArrowRightLeft className="w-4 h-4 sm:w-5 h-5" />
           </div>
           <div>
-            <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-zinc-100">
+            <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-zinc-100">
               FormatCase
             </span>
-            <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5 hidden xs:block">
+            <p className="text-[11px] sm:text-xs text-slate-500 dark:text-zinc-400 -mt-0.5 hidden md:block">
               Clean text and developer case formatting
             </p>
           </div>
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-3">
-          {/* Quick Search Button */}
+        <div className="flex items-center gap-1.5 sm:gap-3">
+          {/* Quick Search Button (Icon on mobile, Full button with label on desktop) */}
           <button
             onClick={onOpenCommandPalette}
-            className="flex items-center gap-2.5 px-3.5 sm:px-4 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950/60 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 hover:border-slate-300 dark:hover:border-zinc-700 transition-all text-xs group cursor-pointer shadow-2xs font-medium"
+            className="flex items-center gap-2 px-2.5 sm:px-4 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950/60 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 hover:border-slate-300 dark:hover:border-zinc-700 transition-all text-xs group cursor-pointer shadow-2xs font-medium"
             title="Search casing formats"
+            aria-label="Search casing formats"
           >
             <Search className="w-4 h-4 group-hover:text-indigo-500 transition-colors" />
-            <span>Search formats...</span>
+            <span className="hidden sm:inline">Search formats...</span>
           </button>
 
-          {/* Social Links: GitHub & LinkedIn */}
-          <div className="flex items-center gap-1 sm:gap-1.5 border-r border-slate-200 dark:border-zinc-800 pr-2 sm:pr-3">
+          {/* Social Links: GitHub & LinkedIn (Hidden on mobile, visible on tablet/desktop) */}
+          <div className="hidden sm:flex items-center gap-1.5 border-r border-slate-200 dark:border-zinc-800 pr-3">
             <a
               href="https://github.com/shoaibmarif"
               target="_blank"
@@ -76,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Theme Toggle */}
           <button
             onClick={onThemeToggle}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-all cursor-pointer shadow-2xs text-xs font-medium"
+            className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 hover:bg-slate-100 dark:hover:bg-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 transition-all cursor-pointer shadow-2xs text-xs font-medium"
             title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             aria-label="Toggle theme"
           >

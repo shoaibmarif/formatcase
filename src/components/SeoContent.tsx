@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, ChevronDown, ChevronUp, Copy, Check, Terminal, Database, Code, Globe } from 'lucide-react';
+import { BookOpen, ChevronDown, Copy, Check, Terminal, Database, Code, Globe } from 'lucide-react';
 
 interface SeoContentProps {
   onNotifyCopy: (msg: string) => void;
@@ -15,57 +15,117 @@ interface CasingGuideItem {
 const CASING_GUIDES: CasingGuideItem[] = [
   {
     format: 'camelCase',
-    pattern: 'userAccountId',
+    pattern: 'helloWorld',
     primaryStacks: 'JavaScript, TypeScript, Java, Swift',
     rule: 'First word is lowercase, and every following word starts with a capital letter.',
   },
   {
     format: 'PascalCase',
-    pattern: 'UserAccountId',
-    primaryStacks: 'React/Vue components, C#, TypeScript types',
+    pattern: 'HelloWorld',
+    primaryStacks: 'React/Vue components, C#, TypeScript types, StudlyCaps',
     rule: 'Every single word starts with a capital letter, with no spaces in between.',
   },
   {
     format: 'snake_case',
-    pattern: 'user_account_id',
+    pattern: 'hello_world',
     primaryStacks: 'Python, SQL databases, Rust',
     rule: 'Everything is in lowercase, with words joined together by underscores.',
   },
   {
     format: 'SCREAMING_SNAKE',
-    pattern: 'USER_ACCOUNT_ID',
+    pattern: 'HELLO_WORLD',
     primaryStacks: '.env files, constants, system config',
-    rule: 'ALL CAPS letters connected with underscores. Used for fixed values you never change.',
+    rule: 'ALL CAPS letters connected with underscores. Used for fixed constants.',
   },
   {
     format: 'kebab-case',
-    pattern: 'user-account-id',
-    primaryStacks: 'Website URLs, CSS classes, HTML tags',
-    rule: 'All lowercase letters joined with hyphens. Clean and easy to read in a browser address bar.',
+    pattern: 'hello-world',
+    primaryStacks: 'Website URLs, CSS classes, HTML tags, lower-kebab-case',
+    rule: 'All lowercase letters joined with hyphens. Clean and easy to read in a browser.',
+  },
+  {
+    format: 'Train-Case',
+    pattern: 'Hello-World',
+    primaryStacks: 'HTTP headers, legacy naming, Header-Case',
+    rule: 'Capitalized words separated by hyphens (also known as Header-Case).',
+  },
+  {
+    format: 'COBOL-CASE',
+    pattern: 'HELLO-WORLD',
+    primaryStacks: 'COBOL, legacy mainframes, UPPER-KEBAB-CASE',
+    rule: 'ALL CAPS letters joined by hyphens, standard for COBOL variable declarations.',
   },
   {
     format: 'Title Case',
-    pattern: 'User Account Identifier',
+    pattern: 'Hello World',
     primaryStacks: 'Headlines, blog titles, articles',
-    rule: 'Capitalizes major words like a book title, keeping small words like "and", "in", and "of" lowercase.',
+    rule: 'Capitalizes major words like a book title, keeping minor conjunctions lowercase.',
   },
   {
     format: 'Sentence case',
-    pattern: 'User account identifier',
+    pattern: 'Hello world',
     primaryStacks: 'Normal text, emails, UI labels',
-    rule: 'Just like a normal sentence: capitalizes the very first letter and leaves the rest lowercase.',
+    rule: 'Capitalizes the very first letter of each sentence and leaves the rest lowercase.',
+  },
+  {
+    format: 'Pascal_Snake_Case',
+    pattern: 'Hello_World',
+    primaryStacks: 'C/C++ macros, Python exceptions, database views',
+    rule: 'Capitalized words joined together with underscores.',
+  },
+  {
+    format: 'camel_Snake_Case',
+    pattern: 'hello_World',
+    primaryStacks: 'Specialized API models, database naming conventions',
+    rule: 'Starts lowercase with underscores before each capitalized subsequent word.',
+  },
+  {
+    format: 'mACRO_CASE',
+    pattern: 'hello_WORLD',
+    primaryStacks: 'Preprocessor symbols, scoped constant identifiers',
+    rule: 'Lowercase prefix or namespace joined with uppercase identifier tokens.',
+  },
+  {
+    format: 'Hungarian notation',
+    pattern: 'strName, iCount',
+    primaryStacks: 'Win32 APIs, legacy C++, structured systems',
+    rule: 'Prefixes variables with their type abbreviation (str for string, i for integer, b for boolean).',
+  },
+  {
+    format: 'BiCapitalization',
+    pattern: 'iPhone',
+    primaryStacks: 'Brand names, consumer tech, product titles (eBay, iPad)',
+    rule: 'Internal capitalization inside a word or brand name.',
+  },
+  {
+    format: 'Flatcase',
+    pattern: 'helloworld',
+    primaryStacks: 'Package names (Java/Go), domain names, email handles',
+    rule: 'All lowercase characters concatenated without spaces or separators.',
+  },
+  {
+    format: 'Reverse Pascal Case',
+    pattern: 'hELLOWORLD',
+    primaryStacks: 'Alternative ciphering, inverted casing',
+    rule: 'First character lowercase followed by all uppercase characters.',
   },
   {
     format: 'dot.case',
-    pattern: 'user.account.id',
+    pattern: 'hello.world',
     primaryStacks: 'Config files, properties, translation keys',
     rule: 'Lowercase words separated by simple periods.',
   },
   {
     format: 'path/case',
-    pattern: 'user/account/id',
-    primaryStacks: 'Folder structures, website routes',
-    rule: 'Words separated by forward slashes, just like folder paths on your computer.',
+    pattern: 'hello/world',
+    primaryStacks: 'Folder structures, website routes, Slash Case',
+    rule: 'Words separated by forward slashes, matching directory paths.',
+  },
+  {
+    format: 'Hash Case',
+    pattern: 'hello#world',
+    primaryStacks: 'URI fragments, tag separators, specialized identifiers',
+    rule: 'Words separated by hash (#) symbols.',
   },
 ];
 
@@ -253,25 +313,38 @@ export const SeoContent: React.FC<SeoContentProps> = ({ onNotifyCopy }) => {
             return (
               <div
                 key={faq.question}
-                className="rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 overflow-hidden transition-colors"
+                className="rounded-2xl border border-slate-200/80 dark:border-zinc-800/80 overflow-hidden transition-all bg-white dark:bg-zinc-900 shadow-2xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-3 hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors cursor-pointer"
+                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-3 hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors cursor-pointer group"
+                  aria-expanded={isOpen}
                 >
-                  <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-zinc-200">
+                  <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-zinc-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                     {faq.question}
                   </span>
-                  <div className="text-slate-400 dark:text-zinc-500 shrink-0">
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  <div
+                    className={`text-slate-400 dark:text-zinc-500 shrink-0 transform transition-transform duration-300 ease-out ${
+                      isOpen ? 'rotate-180 text-indigo-600 dark:text-indigo-400' : 'rotate-0'
+                    }`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed border-t border-slate-100 dark:border-zinc-800/60 bg-slate-50/50 dark:bg-zinc-950/40">
-                    {faq.answer}
+
+                {/* Smooth animated accordion drawer */}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-5 pt-3 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed border-t border-slate-100 dark:border-zinc-800/60 bg-slate-50/50 dark:bg-zinc-950/40">
+                      {faq.answer}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

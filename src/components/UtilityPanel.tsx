@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sliders, PlusCircle, Eraser, ChevronDown, ChevronUp } from 'lucide-react';
+import { Sliders, PlusCircle, Eraser, ChevronDown } from 'lucide-react';
 import { applyPrefixSuffix, cleanText, CleanerOptions } from '../utils/textUtils';
 
 interface UtilityPanelProps {
@@ -31,29 +31,35 @@ export const UtilityPanel: React.FC<UtilityPanelProps> = ({ input, onUpdateInput
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 sm:px-8 py-5 flex items-center justify-between hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors cursor-pointer text-left"
+        className="w-full px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between hover:bg-slate-50/80 dark:hover:bg-zinc-800/50 transition-colors cursor-pointer text-left group"
+        aria-expanded={isOpen}
       >
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
-            <Sliders className="w-5 h-5" />
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 shrink-0 group-hover:scale-105 transition-transform">
+            <Sliders className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
           <div>
-            <span className="text-sm font-bold text-slate-800 dark:text-zinc-100">
+            <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-zinc-100">
               Advanced Text Utilities & Delimiter Tools
             </span>
-            <span className="ml-2 text-xs text-slate-500 dark:text-zinc-400 hidden sm:inline">
+            <span className="ml-2 text-xs text-slate-500 dark:text-zinc-400 hidden lg:inline">
               (Prefix/Suffix injection, delimiter stripper, whitespace cleaner)
             </span>
           </div>
         </div>
-        <div className="text-slate-400 dark:text-zinc-500">
-          {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        <div className={`text-slate-400 dark:text-zinc-500 shrink-0 ml-2 transform transition-transform duration-300 ease-out ${isOpen ? 'rotate-180 text-indigo-600 dark:text-indigo-400' : 'rotate-0'}`}>
+          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
         </div>
       </button>
 
-      {/* Expanded body */}
-      {isOpen && (
-        <div className="p-6 sm:p-8 border-t border-slate-200/80 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-950/40 space-y-8 animate-in fade-in duration-200">
+      {/* Smooth Animated Accordion Body */}
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="p-4 sm:p-6 md:p-8 border-t border-slate-200/80 dark:border-zinc-800/80 bg-slate-50/50 dark:bg-zinc-950/40 space-y-6 sm:space-y-8">
           {/* Prefix / Suffix Injection */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
@@ -207,7 +213,8 @@ export const UtilityPanel: React.FC<UtilityPanelProps> = ({ input, onUpdateInput
             </div>
           </div>
         </div>
-      )}
+      </div>
+    </div>
     </div>
   );
 };

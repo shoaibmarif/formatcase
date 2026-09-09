@@ -15,12 +15,15 @@ interface ToastProps {
 export const Toast: React.FC<ToastProps> = ({ toasts, onDismiss }) => {
   if (toasts.length === 0) return null;
 
+  // Enforce maximum 3 toasts visible simultaneously
+  const visibleToasts = toasts.slice(-3);
+
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm w-full">
-      {toasts.map((toast) => (
+    <div className="fixed bottom-4 sm:bottom-5 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-5 z-50 flex flex-col items-center sm:items-end gap-2 pointer-events-none w-[calc(100%-2rem)] max-w-sm sm:w-auto">
+      {visibleToasts.map((toast) => (
         <div
           key={toast.id}
-          className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-xl shadow-lg border backdrop-blur-md transition-all duration-300 transform translate-y-0 animate-in fade-in slide-in-from-bottom-2 ${
+          className={`pointer-events-auto w-full flex items-center justify-between p-3.5 rounded-2xl shadow-xl border backdrop-blur-md transition-all duration-300 transform translate-y-0 animate-in fade-in slide-in-from-bottom-2 ${
             toast.type === 'success'
               ? 'bg-emerald-950/90 text-emerald-100 border-emerald-800 dark:bg-emerald-950/90 dark:border-emerald-700'
               : toast.type === 'error'

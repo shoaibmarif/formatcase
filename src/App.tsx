@@ -44,10 +44,16 @@ export default function App() {
 
   const addToast = (message: string, type: 'success' | 'error' | 'info' = 'success') => {
     const id = `${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
-    setToasts((prev) => [...prev, { id, message, type }]);
+    setToasts((prev) => {
+      // Filter out duplicate active toasts with the exact same message to avoid stacking
+      const deduplicated = prev.filter((t) => t.message !== message);
+      // Keep only the most recent 2, then append the new one (maximum 3 total)
+      const trimmed = deduplicated.slice(-2);
+      return [...trimmed, { id, message, type }];
+    });
     setTimeout(() => {
       setToasts((prev) => prev.filter((t) => t.id !== id));
-    }, 2800);
+    }, 2400);
   };
 
   const dismissToast = (id: string) => {
@@ -118,7 +124,7 @@ export default function App() {
       />
 
       {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 flex-1 w-full space-y-10">
+      <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-14 flex-1 w-full space-y-6 sm:space-y-10 overflow-hidden">
         {/* Input Workbench */}
         <InputWorkbench
           input={input}
